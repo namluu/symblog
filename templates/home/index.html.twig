@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}
+    {{ 'Home Page'|trans }}
+{% endblock %}
+
+{% block main_navigation %}
+    {{ include('home/main_navigation.html.twig') }}
+{% endblock %}
+
 {% block body %}
 hello
 {% endblock %}
