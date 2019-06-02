@@ -1,3 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
+.top-menu {
+  .nav-item {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+

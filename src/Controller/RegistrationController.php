@@ -32,6 +32,7 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
+            $user->setDisplayName($this->getNameFromEmail($user->getEmail()));
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -39,11 +40,22 @@ class RegistrationController extends AbstractController
 
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_home_index.vi');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
+    }
+
+    /**
+     * from username@email.com we will return username
+     *
+     * @param $email
+     * @return bool|string
+     */
+    protected function getNameFromEmail($email)
+    {
+        return substr($email, 0, strpos($email, '@'));
     }
 }
