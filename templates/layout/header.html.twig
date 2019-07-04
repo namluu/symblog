@@ -11,17 +11,17 @@
                 <button class="btn btn-outline-primary text-light my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
             </form>
             <ul class="navbar-nav ml-auto top-menu">
-                <li class="nav-item {% if app.request.get('_route') == 'app_home_index' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('app_home_index') }}">{{ 'Home'|trans }}</a></li>
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item {% if app.request.get('_route') == 'app_post_add' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path('app_post_add') }}"><i class="fas fa-pen-nib"></i> {{ 'Post'|trans }}</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
                             {{ app.user.displayName }}</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">My account</a>
-                            <a class="dropdown-item" href="#">Setting</a>
+                            <a class="dropdown-item" href="#">{{ 'My account'|trans }}</a>
+                            <a class="dropdown-item" href="#">{{ 'Setting'|trans }}</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ path('app_logout') }}">Sign out</a>
+                            <a class="dropdown-item" href="{{ path('app_logout') }}">{{ 'Sign out'|trans }}</a>
                         </div>
                     </li>
                 {% else %}
