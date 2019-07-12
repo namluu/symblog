@@ -4,6 +4,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\PostRepository;
 
 class HomeController extends AbstractController
 {
@@ -13,8 +14,11 @@ class HomeController extends AbstractController
      *     "en": "/en"
      * })
      */
-    public function index()
+    public function index(PostRepository $postRepository)
     {
-        return $this->render('home/index.html.twig');
+        $posts = $postRepository->findAll();
+        return $this->render('home/index.html.twig',[
+            'posts' => $posts
+        ]);
     }
 }

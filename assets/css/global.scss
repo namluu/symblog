@@ -2,11 +2,17 @@
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 
 .top-menu {
-  .nav-item {
-    .dropdown-menu {
-      left: auto;
-      right: 0;
+    .nav-item {
+        .dropdown-menu {
+            left: auto;
+            right: 0;
+        }
     }
-  }
 }
 
+.post {
+    .post-item {
+        border-top: 1px solid rgba(0,0,0,0.1);
+        padding: 0.5em;
+    }
+}

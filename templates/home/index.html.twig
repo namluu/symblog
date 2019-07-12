@@ -5,5 +5,23 @@
 {% endblock %}
 
 {% block body %}
-hello
+
+<main>
+    <div class="post">
+        {% for post in posts %}
+        <div class="post-item">
+            <div class="media">
+                <img class="mr-3 rounded-circle" src="{{ asset('build/images/male_avatar_small.png') }}" alt="placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1">{{ post.title }}</h5>
+                    <span>{{ post.content }}</span>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p>no records found</p>
+        {% endfor %}
+    </div>
+</main>
+
 {% endblock %}
