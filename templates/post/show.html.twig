@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'Post'|trans }}
+{% endblock %}
+
+{% block body %}
+    <main>
+        <article>
+            <h1>{{ post.title }}</h1>
+            <section>{{ post.content }}</section>
+        </article>
+    </main>
+{% endblock %}

@@ -37,4 +37,14 @@ class PostController extends AbstractController
             'postForm' => $form->createView()
         ]);
     }
+
+    /**
+     * @Route({"vi":"/posts/{id}", "en":"en/posts/{id}"}, methods={"GET"})
+     */
+    public function show(Post $post): Response
+    {
+        return $this->render('post/show.html.twig', [
+            'post' => $post,
+        ]);
+    }
 }
